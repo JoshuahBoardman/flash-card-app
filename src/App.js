@@ -1,8 +1,14 @@
 import React from "react";
+
+// Context
 import CardCollectionContext from "./context/CardCollectionContext";
+
+// Components
+import CardCollectionsDisplay from "./components/CardCollectionsDisplay";
+
+// React Bootstrap Components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import CardCollectionsDisplay from "./components/CardCollectionsDisplay";
 
 function App() {
   return (

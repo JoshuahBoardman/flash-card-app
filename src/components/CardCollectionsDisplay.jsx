@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useCardCollection } from "../context/CardCollectionContext";
-import CreateCollectionModal from "./CreateCollectionModal";
+
+// Components
+import CreateCollection from "./CreateCollection";
 import CollectionCard from "./CollectionCard";
 
 // React Bootstrap Components
@@ -10,20 +12,13 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 const CardCollectionsDisplay = () => {
-  const [cardCollection, setCardCollection] = useCardCollection();
-  const [showModal, setShowModal] = useState(false);
+  const [cardCollection] = useCardCollection();
 
-  const handleCloseModal = () => setShowModal(false);
-  const handleShowModal = () => setShowModal(true);
+  const [showCreationModal, setShowCreationModal] = useState(false);
 
-  // TODO: Make this acsessable from other locations (Maybe make a universal card component?)
-  function deleteCollection(index) {
-    if (index === -1) return;
-    setCardCollection([
-      ...cardCollection.slice(0, index),
-      ...cardCollection.slice(index + 1),
-    ]);
-  }
+  const handleCloseCreationModal = () => setShowCreationModal(false);
+  const handleShowCreationModal = () => setShowCreationModal(true);
+
   // TODO: Swtich to CSS grid in a container
   // TODO: Make a main section component and put this inside that as a rendering option (Maybe?)
   return (
@@ -33,7 +28,7 @@ const CardCollectionsDisplay = () => {
           <Button
             variant="primary"
             onClick={() => {
-              handleShowModal();
+              handleShowCreationModal();
             }}
           >
             New Collection
@@ -42,18 +37,17 @@ const CardCollectionsDisplay = () => {
       </Row>
 
       {/* Modal */}
-      <CreateCollectionModal show={showModal} handleClose={handleCloseModal} />
+      <CreateCollection
+        showModal={showCreationModal}
+        handleCloseModal={handleCloseCreationModal}
+      />
       <Row>
         <Col className="d-flex flex-wrap justify-content-center gap-3">
           {cardCollection.length > 0 ? (
             cardCollection.map((collection, index) => {
               return (
                 // Collection Card
-                <CollectionCard
-                  index={index}
-                  collection={collection}
-                  deleteCollection={deleteCollection}
-                />
+                <CollectionCard index={index} collection={collection} />
               );
             })
           ) : (
