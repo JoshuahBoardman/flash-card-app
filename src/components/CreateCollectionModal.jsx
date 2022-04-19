@@ -11,8 +11,9 @@ const CreateCollectionModal = ({ show, handleClose }) => {
   const [textAreaValue, setTextAreaValue] = useState("");
 
   //TODO: Add auth text for collection title
+  // TODO: Make this modular for any cards, make the parent handle this functionality
   function createNewCollection() {
-    if (titleValue.length <= 0) return
+    if (titleValue.length <= 0) return;
     setCardCollection([
       ...cardCollection,
       {
@@ -35,12 +36,14 @@ const CreateCollectionModal = ({ show, handleClose }) => {
     >
       <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">
+        {/* TODO: Modal Header */}
           New Collection
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
           <Form.Group className="mb-3">
+          {/* TODO: Label One */}
             <Form.Label>Collection Title</Form.Label>
             <Form.Control
               type="text"
@@ -51,6 +54,7 @@ const CreateCollectionModal = ({ show, handleClose }) => {
             />
           </Form.Group>
           <Form.Group className="mb-3">
+          {/* TODO: Label Two */}
             <Form.Label>Collection Description</Form.Label>
             <Form.Control
               as="textarea"
@@ -62,13 +66,7 @@ const CreateCollectionModal = ({ show, handleClose }) => {
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button
-          onClick={() => {
-            handleClose();
-          }}
-        >
-          Close
-        </Button>
+        <Button onClick={() => handleClose()}>Close</Button>
         <Button onClick={() => createNewCollection()}>Create</Button>
       </Modal.Footer>
     </Modal>

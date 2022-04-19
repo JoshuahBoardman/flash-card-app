@@ -6,7 +6,6 @@ export function useCardCollection() {
     return useContext(cardCollectionContext);
 }
 
-// TODO: Add a discription property to each collection object
 const CardCollectionContext = ({ children }) => {
   const [cardCollection, setCardCollection] = useState([
     {
