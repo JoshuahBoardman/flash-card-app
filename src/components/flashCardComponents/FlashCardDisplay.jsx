@@ -12,7 +12,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 const FlashCardDisplay = () => {
-  const [ cardCollection ] = useCardCollection();
+  const [cardCollection] = useCardCollection();
   const { collectionIndex } = useParams();
 
   const flashCards = cardCollection[collectionIndex].cards;
@@ -30,7 +30,14 @@ const FlashCardDisplay = () => {
           <Col className="d-flex flex-wrap justify-content-center gap-3">
             {flashCards.length > 0 ? (
               flashCards.map((card, index) => {
-                return <FlashCard key={index} index={index} card={card} />;
+                return (
+                  <FlashCard
+                    key={index}
+                    flashCardIndex={index}
+                    collectionIndex={collectionIndex}
+                    card={card}
+                  />
+                );
               })
             ) : (
               // Flash Card array is empty
