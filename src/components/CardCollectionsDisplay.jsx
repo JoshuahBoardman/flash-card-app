@@ -47,7 +47,7 @@ const CardCollectionsDisplay = () => {
             cardCollection.map((collection, index) => {
               return (
                 // Collection Card
-                <CollectionCard index={index} collection={collection} />
+                <CollectionCard key={index} index={index} collection={collection} />
               );
             })
           ) : (
