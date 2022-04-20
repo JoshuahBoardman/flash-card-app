@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Components
 import DeleteCollection from "./DeleteCollection";
@@ -9,6 +10,7 @@ import Button from "react-bootstrap/Button";
 
 const CollectionCard = ({ index, collection }) => {
   const [showDeletionModal, setShowDeletionModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleCloseDeletionModal = () => setShowDeletionModal(false);
   const handleShowDeletionModal = () => setShowDeletionModal(true);
@@ -23,7 +25,13 @@ const CollectionCard = ({ index, collection }) => {
           </Card.Subtitle>
           {/* TODO: Limit the card description length */}
           <Card.Text>{collection.description}</Card.Text>
-          <Button variant="primary" className="me-2">
+          <Button
+            variant="primary"
+            className="me-2"
+            onClick={() => {
+              navigate(`/collection/${index}`);
+            }}
+          >
             Vliew
           </Button>
           <Button

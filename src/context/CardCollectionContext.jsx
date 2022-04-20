@@ -6,6 +6,7 @@ export function useCardCollection() {
     return useContext(cardCollectionContext);
 }
 
+//TODO: Maybe add random ID generation.
 const CardCollectionContext = ({ children }) => {
   const [cardCollection, setCardCollection] = useState([
     {
