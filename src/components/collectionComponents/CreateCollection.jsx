@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useCardCollection } from "../context/CardCollectionContext";
+import { useCardCollection } from "../../context/CardCollectionContext";
 
 // Components
-import CardCreationModal from "./CardCreationModal";
+import CardCreationModal from "../CardCreationModal";
 
 const CreateCollection = ({ showModal, handleCloseModal }) => {
   const [cardCollection, setCardCollection] = useCardCollection();

@@ -1,5 +1,5 @@
 import React from "react";
-import { useCardCollection } from "../context/CardCollectionContext";
+import { useCardCollection } from "../../context/CardCollectionContext";
 import { useParams } from "react-router-dom";
 
 // Components
@@ -12,10 +12,12 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 const FlashCardDisplay = () => {
-  const [cardCollection, setCardCollection] = useCardCollection();
+  const [ cardCollection ] = useCardCollection();
   const { collectionIndex } = useParams();
 
   const flashCards = cardCollection[collectionIndex].cards;
+
+  // TODO: Display the name of the collection and discription at the top.
   return (
     <div>
       <Container fluid="xxl" className="my-5">

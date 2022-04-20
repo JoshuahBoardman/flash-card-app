@@ -9,8 +9,8 @@ import {
 import CardCollectionContext from "./context/CardCollectionContext";
 
 // Components
-import CardCollectionsDisplay from "./components/CardCollectionsDisplay";
-import FlashCardDisplay from "./components/FlashCardDisplay"
+import CardCollectionsDisplay from "./components/collectionComponents/CardCollectionsDisplay";
+import FlashCardDisplay from "./components/flashCardComponents/FlashCardDisplay"
 
 // React Bootstrap Components
 import Header from "./components/Header";

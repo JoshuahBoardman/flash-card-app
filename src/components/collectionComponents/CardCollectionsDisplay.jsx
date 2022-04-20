@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useCardCollection } from "../context/CardCollectionContext";
+import { useCardCollection } from "../../context/CardCollectionContext";
 
 // Components
-import CreateCollection from "./CreateCollection";
+import CreateCollection from "./CreateCollection"
 import CollectionCard from "./CollectionCard";
 
 // React Bootstrap Components

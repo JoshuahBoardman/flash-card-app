@@ -1,8 +1,8 @@
 import React from "react";
-import { useCardCollection } from "../context/CardCollectionContext";
+import { useCardCollection } from "../../context/CardCollectionContext";
 
 // Components
-import CardDeletionModal from "./CardDeletionModal";
+import CardDeletionModal from "../CardDeletionModal";
 
 const DeleteCollection = ({
   index,
