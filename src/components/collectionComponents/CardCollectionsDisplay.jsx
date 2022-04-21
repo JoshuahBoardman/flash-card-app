@@ -20,7 +20,7 @@ const CardCollectionsDisplay = () => {
   const handleShowCreationModal = () => setShowCreationModal(true);
 
   // TODO: Swtich to CSS grid in a container
-  // TODO: Make a main section component and put this inside that as a rendering option (Maybe?)
+  // TODO: Make a header for components
   return (
     <Container fluid="xxl" className="my-5">
       <Row>

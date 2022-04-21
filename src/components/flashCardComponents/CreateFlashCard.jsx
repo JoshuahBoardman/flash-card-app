@@ -31,6 +31,7 @@ const CreateFlashCard = ({ collectionIndex, showModal, handleCloseModal }) => {
       showModal={showModal}
       handleCloseModal={handleCloseModal}
       createNewCard={createNewFlashCard}
+      action={"Create"}
     />
   );
 };

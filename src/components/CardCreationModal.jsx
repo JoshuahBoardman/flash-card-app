@@ -17,13 +17,17 @@ const CardCreationModal = ({
   showModal,
   handleCloseModal,
   createNewCard,
+  action,
 }) => {
   // TODO: Add auth text
+  // TODO: Maybe make a better check then if action !== Edit
   function handleUserInput() {
     if (lablelOneValue.length <= 0) return;
     createNewCard();
-    setLabelOneValue("");
-    setLabelTwoValue("");
+    if (action !== "Edit") {
+      setLabelOneValue("");
+      setLabelTwoValue("");
+    }
     handleCloseModal();
   }
 
@@ -61,8 +65,8 @@ const CardCreationModal = ({
         </Form>
       </Modal.Body>
       <Modal.Footer>
+        <Button onClick={() => handleUserInput()}>{action}</Button>
         <Button onClick={() => handleCloseModal()}>Close</Button>
-        <Button onClick={() => handleUserInput()}>Create</Button>
       </Modal.Footer>
     </Modal>
   );

@@ -32,6 +32,7 @@ const CreateCollection = ({ showModal, handleCloseModal }) => {
       showModal={showModal}
       handleCloseModal={handleCloseModal}
       createNewCard={createNewCollection}
+      action={"Create"}
     />
   );
 };

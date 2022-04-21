@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 // Components
+import EditFlashCard from "./EditFlashCard";
 import DeleteFlashCard from "./DeleteFlashCard";
 
 // React Bootstrap Components
@@ -8,7 +9,11 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 const FlashCard = ({ flashCardIndex, collectionIndex, card }) => {
+  const [showEditModal, setShowEditModal] = useState(false);
   const [showDeletionModal, setShowDeletionModal] = useState(false);
+
+  const handleCloseEditModal = () => setShowEditModal(false);
+  const handleShowEditModal = () => setShowEditModal(true);
 
   const handleCloseDeletionModal = () => setShowDeletionModal(false);
   const handleShowDeletionModal = () => setShowDeletionModal(true);
@@ -19,7 +24,11 @@ const FlashCard = ({ flashCardIndex, collectionIndex, card }) => {
         <Card.Body>
           <Card.Title>Question: {card.question}</Card.Title>
           <Card.Text>Answer: {card.answer}</Card.Text>
-          <Button variant="primary" className="me-2">
+          <Button
+            variant="primary"
+            className="me-2"
+            onClick={() => handleShowEditModal()}
+          >
             Edit
           </Button>
           <Button variant="secondary" onClick={() => handleShowDeletionModal()}>
@@ -28,6 +37,13 @@ const FlashCard = ({ flashCardIndex, collectionIndex, card }) => {
         </Card.Body>
       </Card>
 
+      {/* Edit Modal */}
+      <EditFlashCard
+        collectionIndex={collectionIndex}
+        flashCardIndex={flashCardIndex}
+        showModal={showEditModal}
+        handleCloseModal={handleCloseEditModal}
+      />
       {/* Deletion Modal */}
       <DeleteFlashCard
         flashCardIndex={flashCardIndex}
