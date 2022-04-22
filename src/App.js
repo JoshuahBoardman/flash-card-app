@@ -1,16 +1,13 @@
 import React from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Context
 import CardCollectionContext from "./context/CardCollectionContext";
 
 // Components
 import CardCollectionsDisplay from "./components/collectionComponents/CardCollectionsDisplay";
-import FlashCardDisplay from "./components/flashCardComponents/FlashCardDisplay"
+import FlashCardDisplay from "./components/flashCardComponents/FlashCardDisplay";
+import FlashCardQuizDisplay from "./components/flashCardComponents/FlashCardQuizDisplay";
 
 // React Bootstrap Components
 import Header from "./components/Header";
@@ -22,12 +19,16 @@ function App() {
       <Header />
 
       <CardCollectionContext>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<CardCollectionsDisplay />} />
-          <Route path="/collection/:collectionIndex" element={<FlashCardDisplay />} />
-        </Routes>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<CardCollectionsDisplay />} />
+            <Route
+              path="/collection/:collectionIndex"
+              element={<FlashCardDisplay />}
+            />
+            <Route path="/quiz/collection/:collectionIndex" element={<FlashCardQuizDisplay />} />
+          </Routes>
+        </BrowserRouter>
       </CardCollectionContext>
 
       <Footer />

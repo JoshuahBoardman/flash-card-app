@@ -23,7 +23,7 @@ const FlashCard = ({ flashCardIndex, collectionIndex, card }) => {
       <Card style={{ width: "20rem" }}>
         <Card.Body>
           <Card.Title>Question: {card.question}</Card.Title>
-          <Card.Text>Answer: {card.answer}</Card.Text>
+          <Card.Text className="lead">Answer: {card.answer}</Card.Text>
           <Button
             variant="primary"
             className="me-2"

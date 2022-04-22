@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useCardCollection } from "../../context/CardCollectionContext";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 // Components
 import FlashCard from "./FlashCard";
@@ -15,6 +15,7 @@ import Button from "react-bootstrap/Button";
 const FlashCardDisplay = () => {
   const [cardCollection] = useCardCollection();
   const { collectionIndex } = useParams();
+  const navigate = useNavigate();
 
   const [showCreationModal, setShowCreationModal] = useState(false);
 
@@ -31,6 +32,15 @@ const FlashCardDisplay = () => {
           <Row>
             <Col className="d-flex justify-content-center mb-3">
               {/* collectionIndex, showModal, handleCloseModal */}
+              <Button
+                variant="primary"
+                className="me-2"
+                onClick={() => {
+                  navigate(`/quiz/collection/${collectionIndex}`);
+                }}
+              >
+                Quiz
+              </Button>
               <Button
                 variant="primary"
                 onClick={() => {
@@ -67,7 +77,6 @@ const FlashCardDisplay = () => {
         showModal={showCreationModal}
         handleCloseModal={handleCloseCreationModal}
       />
-      ;
     </>
   );
 };
