@@ -59,7 +59,7 @@ const FlashCardQuizDisplay = () => {
               <div className="h4">Loading....</div>
             ) : (
               <div>
-                <QuizFlashCard flashCards={shuffledFlashCards} cardDisplayed={cardDisplayed} displayAnswer={showAnswer} setShowAnswer={setShowAnswer}/>
+                <QuizFlashCard flashCards={shuffledFlashCards} cardDisplayed={cardDisplayed} showAnswer={showAnswer} setShowAnswer={setShowAnswer}/>
 
                 <div className="mt-3">
                   <Button
