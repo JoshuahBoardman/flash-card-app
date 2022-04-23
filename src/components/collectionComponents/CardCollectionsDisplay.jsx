@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useCardCollection } from "../../context/CardCollectionContext";
 
 // Components
-import CreateCollection from "./CreateCollection"
+import CreateCollection from "./CreateCollection";
 import CollectionCard from "./CollectionCard";
 
 // React Bootstrap Components
@@ -27,6 +27,7 @@ const CardCollectionsDisplay = () => {
         <Col className="d-flex justify-content-center mb-3">
           <Button
             variant="primary"
+            className="mb-2"
             onClick={() => {
               handleShowCreationModal();
             }}
@@ -47,7 +48,11 @@ const CardCollectionsDisplay = () => {
             cardCollection.map((collection, index) => {
               return (
                 // Collection Card
-                <CollectionCard key={index} index={index} collection={collection} />
+                <CollectionCard
+                  key={index}
+                  index={index}
+                  collection={collection}
+                />
               );
             })
           ) : (

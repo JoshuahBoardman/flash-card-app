@@ -16,22 +16,23 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <div className="App">
-      <Header />
-
       <CardCollectionContext>
         <BrowserRouter>
+          <Header />
           <Routes>
             <Route path="/" element={<CardCollectionsDisplay />} />
             <Route
               path="/collection/:collectionIndex"
               element={<FlashCardDisplay />}
             />
-            <Route path="/quiz/collection/:collectionIndex" element={<FlashCardQuizDisplay />} />
+            <Route
+              path="/quiz/collection/:collectionIndex"
+              element={<FlashCardQuizDisplay />}
+            />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </CardCollectionContext>
-
-      <Footer />
     </div>
   );
 }
