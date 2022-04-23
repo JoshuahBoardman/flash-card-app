@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useCardCollection } from "../../context/CardCollectionContext";
 import { useParams } from "react-router-dom";
 
+// Components
+import QuizFlashCard from "./QuizFlashCard";
+
 // React Bootstrap Components
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 const FlashCardQuizDisplay = () => {
@@ -57,42 +59,8 @@ const FlashCardQuizDisplay = () => {
               <div className="h4">Loading....</div>
             ) : (
               <div>
-                <Card>
-                  <Card.Header>
-                    FlashCard {cardDisplayed + 1} of {shuffledFlashCards.length}
-                  </Card.Header>
-                  <Card.Body>
-                    <Card.Title>
-                      Question: {shuffledFlashCards[cardDisplayed].question}
-                    </Card.Title>
+                <QuizFlashCard flashCards={shuffledFlashCards} cardDisplayed={cardDisplayed} displayAnswer={showAnswer} setShowAnswer={setShowAnswer}/>
 
-                    {showAnswer ? (
-                      <Card.Text className="mt-3">
-                        <span className="lead">Answer:</span>{" "}
-                        {shuffledFlashCards[cardDisplayed].answer}
-                      </Card.Text>
-                    ) : (
-                      <></>
-                    )}
-                    {!showAnswer ? (
-                      <Button
-                        variant="outline-primary"
-                        className="mt-3"
-                        onClick={() => setShowAnswer(true)}
-                      >
-                        Show Answer
-                      </Button>
-                    ) : (
-                      <Button
-                        variant="outline-secondary"
-                        className="mt-3"
-                        onClick={() => setShowAnswer(false)}
-                      >
-                        Hide Answer
-                      </Button>
-                    )}
-                  </Card.Body>
-                </Card>
                 <div className="mt-3">
                   <Button
                     className="me-2"
