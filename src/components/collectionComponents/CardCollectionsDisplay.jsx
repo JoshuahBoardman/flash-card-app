@@ -22,7 +22,7 @@ const CardCollectionsDisplay = () => {
   // TODO: Swtich to CSS grid in a container
   // TODO: Make a header for components
   return (
-    <Container fluid="xxl" className="my-5">
+    <Container fluid="xxl" className="my-5" style={{minHeight: "80vh"}}>
       <Row>
         <Col className="d-flex justify-content-center mb-3">
           <Button
