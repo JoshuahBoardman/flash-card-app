@@ -16,8 +16,8 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <div className="App">
-      <CardCollectionContext>
-        <BrowserRouter>
+      <BrowserRouter>
+        <CardCollectionContext>
           <Header />
           <Routes>
             <Route path="/" element={<CardCollectionsDisplay />} />
@@ -31,8 +31,8 @@ function App() {
             />
           </Routes>
           <Footer />
-        </BrowserRouter>
-      </CardCollectionContext>
+        </CardCollectionContext>
+      </BrowserRouter>
     </div>
   );
 }
