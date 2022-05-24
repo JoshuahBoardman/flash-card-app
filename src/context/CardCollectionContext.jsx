@@ -9,10 +9,12 @@ export function useCardCollection() {
 //TODO: Maybe add random ID generation.
 const CardCollectionContext = ({ children }) => {
   const [cardCollection, setCardCollection] = useState(() => {
+    let value = [];
     const data = localStorage.getItem("flashcard-collections");
     if (data) {
-      return JSON.parse(data);
+      value = JSON.parse(data);
     }
+    return value;
   });
 
   useEffect(() => {
