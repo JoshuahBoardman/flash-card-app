@@ -22,12 +22,11 @@ const CardCollectionsDisplay = () => {
   // TODO: Swtich to CSS grid in a container
   // TODO: Make a header for components
   return (
-    <Container fluid="xxl" className="my-5" style={{minHeight: "80vh"}}>
+    <Container fluid="xxl" className="mb-5" style={{ minHeight: "100vh" }}>
       <Row>
-        <Col className="d-flex justify-content-center mb-3">
+        <Col className="d-flex justify-content-center my-5">
           <Button
             variant="primary"
-            className="mb-2"
             onClick={() => {
               handleShowCreationModal();
             }}
@@ -42,24 +41,32 @@ const CardCollectionsDisplay = () => {
         showModal={showCreationModal}
         handleCloseModal={handleCloseCreationModal}
       />
-      <Row>
-        <Col className="d-flex flex-wrap justify-content-center gap-3">
-          {cardCollection.length > 0 ? (
-            cardCollection.map((collection, index) => {
-              return (
-                // Collection Card
+      <Row className="">
+        {cardCollection.length > 0 ? (
+          cardCollection.map((collection, index) => {
+            return (
+              <Col
+                xxl={3}
+                lg={4}
+                md={6}
+                className="mb-5 d-flex justify-content-center"
+              >
+                {/* Collection Card */}
                 <CollectionCard
                   key={index}
                   index={index}
                   collection={collection}
                 />
-              );
-            })
-          ) : (
-            // Collection array is empty
+              </Col>
+            );
+          })
+        ) : (
+          // Collection array is empty
+          <Col md={12} className="mb-5 d-flex justify-content-center">
             <h3>No Collections Found</h3>
-          )}
-        </Col>
+          </Col>
+        )}
+        {/* </Col> */}
       </Row>
     </Container>
   );

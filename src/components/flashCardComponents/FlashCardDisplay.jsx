@@ -20,10 +20,10 @@ const FlashCardDisplay = () => {
   const [showCreationModal, setShowCreationModal] = useState(false);
 
   useEffect(() => {
-    if(cardCollection[collectionIndex] === undefined ) {
+    if (cardCollection[collectionIndex] === undefined) {
       navigate("/");
     }
-  })
+  });
 
   const handleCloseCreationModal = () => setShowCreationModal(false);
   const handleShowCreationModal = () => setShowCreationModal(true);
@@ -58,23 +58,30 @@ const FlashCardDisplay = () => {
             </Col>
           </Row>
           <Row>
-            <Col className="d-flex flex-wrap justify-content-center gap-3">
-              {flashCards?.length > 0 ? (
-                flashCards?.map((card, index) => {
-                  return (
+            {flashCards?.length > 0 ? (
+              flashCards?.map((card, index) => {
+                return (
+                  <Col
+                    xxl={3}
+                    lg={4}
+                    md={6}
+                    className="mb-5 d-flex justify-content-center"
+                  >
                     <FlashCard
                       key={index}
                       flashCardIndex={index}
                       collectionIndex={collectionIndex}
                       card={card}
                     />
-                  );
-                })
-              ) : (
-                // Flash Card array is empty
+                  </Col>
+                );
+              })
+            ) : (
+              <Col md={12} className="mb-5 d-flex justify-content-center">
+                {/* Flash Card array is empty */}
                 <h3>No Flash Cards Found</h3>
-              )}
-            </Col>
+              </Col>
+            )}
           </Row>
         </Container>
       </div>
