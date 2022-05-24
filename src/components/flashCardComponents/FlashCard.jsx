@@ -24,14 +24,20 @@ const FlashCard = ({ flashCardIndex, collectionIndex, card }) => {
         <Card.Body>
           <Card.Title>Question: {card.question}</Card.Title>
           <Card.Text className="lead">Answer: {card.answer}</Card.Text>
+        </Card.Body>
+        <Card.Body className="d-flex gap-2 mt-auto">
           <Button
             variant="primary"
-            className="me-2"
+            className="d-flex align-items-center mt-auto"
             onClick={() => handleShowEditModal()}
           >
             Edit
           </Button>
-          <Button variant="secondary" onClick={() => handleShowDeletionModal()}>
+          <Button
+            variant="secondary"
+            className="d-flex align-items-center mt-auto"
+            onClick={() => handleShowDeletionModal()}
+          >
             Delete
           </Button>
         </Card.Body>

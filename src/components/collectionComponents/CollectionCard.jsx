@@ -25,9 +25,11 @@ const CollectionCard = ({ index, collection }) => {
           </Card.Subtitle>
           {/* TODO: Limit the card description length */}
           <Card.Text>{collection.description}</Card.Text>
+        </Card.Body>
+        <Card.Body className="d-flex gap-2 mt-auto">
           <Button
             variant="primary"
-            className="me-2"
+            className="d-flex align-items-center mt-auto"
             onClick={() => {
               navigate(`/collection/${index}`);
             }}
@@ -36,6 +38,7 @@ const CollectionCard = ({ index, collection }) => {
           </Button>
           <Button
             variant="secondary"
+            className="d-flex align-items-center mt-auto"
             onClick={() => {
               handleShowDeletionModal();
             }}
