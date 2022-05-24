@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 // Context
 import CardCollectionContext from "./context/CardCollectionContext";
@@ -29,6 +29,7 @@ function App() {
               path="/quiz/collection/:collectionIndex"
               element={<FlashCardQuizDisplay />}
             />
+            <Route path="/*" element={<Navigate to="/" />} />
           </Routes>
           <Footer />
         </BrowserRouter>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useCardCollection } from "../../context/CardCollectionContext";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 // Components
 import QuizFlashCard from "./QuizFlashCard";
@@ -14,6 +14,7 @@ import Button from "react-bootstrap/Button";
 const FlashCardQuizDisplay = () => {
   const [cardCollection] = useCardCollection();
   const { collectionIndex } = useParams();
+  const navigate = useNavigate();
 
   const [shuffledFlashCards, setShuffledFlashCards] = useState([]);
   const [cardDisplayed, setCardDisplayed] = useState(0);
@@ -21,9 +22,16 @@ const FlashCardQuizDisplay = () => {
   const [showAnswer, setShowAnswer] = useState(false);
 
   useEffect(() => {
+    if(cardCollection[collectionIndex] === undefined ) {
+      navigate("/");
+    }
+  })
+
+  useEffect(() => {
     function shuffleFlashCards() {
-      const flashCards = cardCollection[collectionIndex].cards;
-      const rearangedFlashCards = flashCards.sort(() => Math.random() - 0.5);
+      const flashCards = cardCollection[collectionIndex]?.cards;
+      const rearangedFlashCards = flashCards?.sort(() => Math.random() - 0.5);
+      if(rearangedFlashCards === undefined) return;
       setShuffledFlashCards([...rearangedFlashCards]);
     }
     shuffleFlashCards();

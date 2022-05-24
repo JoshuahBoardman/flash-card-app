@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useCardCollection } from "../../context/CardCollectionContext";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -19,10 +19,16 @@ const FlashCardDisplay = () => {
 
   const [showCreationModal, setShowCreationModal] = useState(false);
 
+  useEffect(() => {
+    if(cardCollection[collectionIndex] === undefined ) {
+      navigate("/");
+    }
+  })
+
   const handleCloseCreationModal = () => setShowCreationModal(false);
   const handleShowCreationModal = () => setShowCreationModal(true);
 
-  const flashCards = cardCollection[collectionIndex].cards;
+  let flashCards = cardCollection[collectionIndex]?.cards;
 
   // TODO: Display the name of the collection and discription at the top.
   return (
@@ -53,8 +59,8 @@ const FlashCardDisplay = () => {
           </Row>
           <Row>
             <Col className="d-flex flex-wrap justify-content-center gap-3">
-              {flashCards.length > 0 ? (
-                flashCards.map((card, index) => {
+              {flashCards?.length > 0 ? (
+                flashCards?.map((card, index) => {
                   return (
                     <FlashCard
                       key={index}
