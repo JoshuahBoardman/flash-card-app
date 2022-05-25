@@ -19,7 +19,6 @@ const CardCollectionsDisplay = () => {
   const handleCloseCreationModal = () => setShowCreationModal(false);
   const handleShowCreationModal = () => setShowCreationModal(true);
 
-  // TODO: Swtich to CSS grid in a container
   // TODO: Make a header for components
   return (
     <Container fluid="xxl" className="mb-5" style={{ minHeight: "100vh" }}>

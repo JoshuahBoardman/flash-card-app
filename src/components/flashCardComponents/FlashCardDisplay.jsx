@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useCardCollection } from "../../context/CardCollectionContext";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 // Components
 import FlashCard from "./FlashCard";
@@ -11,6 +11,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 const FlashCardDisplay = () => {
   const [cardCollection] = useCardCollection();
@@ -34,9 +35,10 @@ const FlashCardDisplay = () => {
   return (
     <>
       <div>
-        <Container fluid="xxl" className="my-5">
+        <Container fluid="xxl" className="mb-5" style={{ minHeight: "100vh" }}>
+       
           <Row>
-            <Col className="d-flex justify-content-center mb-3">
+            <Col className="d-flex justify-content-center my-5">
               {/* collectionIndex, showModal, handleCloseModal */}
               <Button
                 variant="primary"

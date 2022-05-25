@@ -57,7 +57,7 @@ const FlashCardQuizDisplay = () => {
   // TODO: have a title for what this display is
   return (
     <>
-      <Container fluid="xxl" className="my-5">
+      <Container fluid="xxl" className="my-5" style={{ minHeight: "100vh" }}>
         <Row>
           <Col className="d-flex justify-content-center mb-3"></Col>
         </Row>
@@ -69,7 +69,7 @@ const FlashCardQuizDisplay = () => {
               <div>
                 <QuizFlashCard flashCards={shuffledFlashCards} cardDisplayed={cardDisplayed} showAnswer={showAnswer} setShowAnswer={setShowAnswer}/>
 
-                <div className="mt-3">
+                <div className="mt-5">
                   <Button
                     className="me-2"
                     onClick={() => {
