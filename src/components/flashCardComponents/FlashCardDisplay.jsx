@@ -11,7 +11,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 const FlashCardDisplay = () => {
   const [cardCollection] = useCardCollection();
@@ -36,7 +35,6 @@ const FlashCardDisplay = () => {
     <>
       <div>
         <Container fluid="xxl" className="mb-5" style={{ minHeight: "100vh" }}>
-       
           <Row>
             <Col className="d-flex justify-content-center my-5">
               {/* collectionIndex, showModal, handleCloseModal */}
